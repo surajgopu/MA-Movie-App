@@ -1,0 +1,212 @@
+﻿/* src/styles/watch.css */
+.watch-page {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.watch-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 3%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.watch-page:hover .watch-header,
+.watch-header.visible {
+  opacity: 1;
+}
+
+.watch-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: var(--transition);
+}
+.watch-back-btn:hover {
+  background: rgba(0,0,0,0.9);
+}
+
+.watch-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.watch-player-area {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.watch-video {
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  object-fit: contain;
+  display: block;
+}
+
+.watch-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  padding: 40px;
+  background-size: cover;
+  background-position: center;
+}
+
+.watch-placeholder-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+}
+
+.watch-placeholder-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.watch-placeholder-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(229,9,20,0.15);
+  border: 2px solid rgba(229,9,20,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.watch-placeholder h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.watch-placeholder p {
+  color: var(--text-secondary);
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.watch-disclaimer {
+  background: rgba(229,9,20,0.1);
+  border: 1px solid rgba(229,9,20,0.3);
+  border-radius: var(--radius);
+  padding: 12px 20px;
+  color: #ff8080;
+  font-size: 0.85rem;
+  max-width: 500px;
+}
+
+.watch-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 3% 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.watch-page:hover .watch-controls,
+.watch-controls.visible {
+  opacity: 1;
+}
+
+.watch-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 2px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  position: relative;
+}
+.watch-progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: width 0.1s;
+}
+
+.watch-control-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.watch-controls-left,
+.watch-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+}
+.control-btn:hover {
+  color: var(--text-secondary);
+  transform: scale(1.1);
+}
+
+.watch-time {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.volume-slider {
+  width: 80px;
+  height: 4px;
+  accent-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .watch-header {
+    opacity: 1;
+  }
+  .watch-controls {
+    opacity: 1;
+  }
+}

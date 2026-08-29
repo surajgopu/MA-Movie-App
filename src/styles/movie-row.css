@@ -1,0 +1,132 @@
+﻿/* src/styles/movie-row.css */
+.movie-row {
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.movie-row-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4%;
+  margin-bottom: 8px;
+}
+
+.movie-row-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  transition: var(--transition);
+}
+
+.movie-row-see-all {
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 600;
+  opacity: 0;
+  transition: var(--transition);
+}
+.movie-row:hover .movie-row-see-all {
+  opacity: 1;
+}
+
+.movie-row-scroll {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 8px 4% 16px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.movie-row-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-row-scroll .movie-card {
+  width: calc((100% - 4% * 2 - 8px * 5) / 6);
+  min-width: 150px;
+  max-width: 220px;
+}
+
+/* Skeleton row */
+.movie-row-skeleton .skeleton-title {
+  height: 24px;
+  width: 200px;
+  margin: 0 4% 12px;
+}
+
+.movie-row-skeleton .skeleton-cards {
+  display: flex;
+  gap: 8px;
+  padding: 0 4%;
+  overflow: hidden;
+}
+
+.movie-row-skeleton .skeleton-card {
+  flex-shrink: 0;
+  width: calc((100% - 8px * 5) / 6);
+  min-width: 150px;
+  aspect-ratio: 2/3;
+}
+
+/* Scroll arrows */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.7);
+  border: 2px solid var(--border);
+  color: var(--text);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.movie-row:hover .scroll-btn {
+  opacity: 1;
+}
+.scroll-btn:hover {
+  background: rgba(0,0,0,0.95);
+}
+.scroll-btn.scroll-prev {
+  left: 0.5%;
+}
+.scroll-btn.scroll-next {
+  right: 0.5%;
+}
+
+@media (max-width: 1024px) {
+  .movie-row-scroll .movie-card {
+    width: calc((100% - 8px * 3) / 4);
+  }
+  .movie-row-skeleton .skeleton-card {
+    width: calc((100% - 8px * 3) / 4);
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-row-scroll .movie-card {
+    width: calc((100% - 8px * 2) / 3);
+  }
+  .movie-row-skeleton .skeleton-card {
+    width: calc((100% - 8px * 2) / 3);
+  }
+  .scroll-btn { display: none; }
+}
+
+@media (max-width: 480px) {
+  .movie-row-scroll .movie-card {
+    width: calc((100% - 8px) / 2);
+  }
+  .movie-row-skeleton .skeleton-card {
+    width: calc((100% - 8px) / 2);
+  }
+}

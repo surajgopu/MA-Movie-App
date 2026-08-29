@@ -1,0 +1,147 @@
+﻿/* src/styles/movie-card.css */
+.movie-card {
+  position: relative;
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, z-index 0s 0.25s;
+  background: var(--surface-light);
+}
+
+.movie-card:hover {
+  transform: scale(1.08);
+  z-index: 10;
+  transition: transform 0.25s ease;
+  box-shadow: var(--shadow-lg);
+}
+
+.movie-card-poster {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-card-placeholder {
+  width: 100%;
+  aspect-ratio: 2/3;
+  background: var(--surface-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 10px;
+}
+.movie-card-placeholder span {
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+.movie-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 50%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px;
+  gap: 8px;
+}
+
+.movie-card:hover .movie-card-overlay {
+  opacity: 1;
+}
+
+.movie-card-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.movie-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.movie-card-rating {
+  color: var(--success);
+  font-weight: 700;
+}
+
+.movie-card-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.card-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  font-size: 0.85rem;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.card-btn-play {
+  background: var(--text);
+  color: var(--background);
+}
+.card-btn-play:hover {
+  background: rgba(255,255,255,0.8);
+}
+
+.card-btn-list {
+  background: rgba(42,42,42,0.8);
+  color: var(--text);
+  border: 2px solid var(--text-secondary);
+}
+.card-btn-list:hover {
+  border-color: var(--text);
+  background: rgba(42,42,42,1);
+}
+.card-btn-list.in-list {
+  background: var(--success);
+  border-color: var(--success);
+  color: var(--background);
+}
+
+.card-btn-info {
+  background: rgba(42,42,42,0.8);
+  color: var(--text);
+  border: 2px solid var(--text-secondary);
+  margin-left: auto;
+}
+.card-btn-info:hover {
+  border-color: var(--text);
+}
+
+/* Skeleton card */
+.movie-card-skeleton {
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.movie-card-skeleton .skeleton-poster {
+  width: 100%;
+  aspect-ratio: 2/3;
+}
